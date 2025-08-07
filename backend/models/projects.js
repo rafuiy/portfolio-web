@@ -18,6 +18,10 @@ const Project = sequelize.define('Project', {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  link_project: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
   tableName: 'projects',
   timestamps: true,

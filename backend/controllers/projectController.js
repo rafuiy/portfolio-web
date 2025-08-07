@@ -24,14 +24,15 @@ exports.getProjectById = async (req, res) => {
 
 exports.createProject = async (req, res) => {
   try {
-    const { title, project_instance, preview_description, techstack_ids } = req.body;
+    const { title, project_instance, preview_description, link_project, techstack_ids } = req.body;
     const project_icon = req.file ? `/uploads/projects/${req.file.filename}` : null;
 
     const newProject = await Project.create({
       title,
       project_instance,
       preview_description,
-      project_icon
+      project_icon,
+      link_project
     });
 
     // Set techstacks jika ada
