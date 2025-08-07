@@ -3,7 +3,7 @@ const sequelize = require('../config/database');
 // Import semua model
 const Project = require('./projects');
 const Techstack = require('./techStacks');
-const DetailedProject = require('./DetailedProject');
+const DetailedProject = require('./detailedProject');
 
 // Relasi Project ↔ DetailedProject
 Project.hasMany(DetailedProject, {
