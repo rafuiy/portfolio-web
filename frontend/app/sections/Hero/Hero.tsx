@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-screen flex items-center justify-between px-6 md:px-20 py-12 bg-gradient-to-b from-[#2a154b] to-[#1a1a2e] text-white relative overflow-hidden">
+    <section id='home' className="hero w-full min-h-screen flex items-center justify-between px-6 md:px-20 py-12 bg-gradient-to-b from-[#2a154b] to-[#1a1a2e] text-white relative overflow-hidden">
       {/* Kiri */}
       <div className="max-w-xl z-10">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">

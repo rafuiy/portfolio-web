@@ -16,7 +16,7 @@ export default function ProjectCard({
   stackIcons,
   client,
   description,
-  detailUrl,
+  // detailUrl,
   previewUrl
 }: ProjectCardProps) {
   return (
