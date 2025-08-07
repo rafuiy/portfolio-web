@@ -25,7 +25,7 @@ export default function ProjectCard({
         <Image
           src={image}
           alt={title}
-          width={400} // sesuaikan dimensi
+          width={400}
           height={250}
           className="w-full h-auto object-cover"
         />

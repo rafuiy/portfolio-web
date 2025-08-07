@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google"
 import "./globals.css"
-import Navbar from "./components/Navbar" // <-- ini path-nya sudah benar
+import Navbar from "./components/Navbar" 
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} font-sans antialiased`}>
-        <Navbar /> {/* ← Navbar akan muncul di semua halaman */}
+        <Navbar /> 
         {children}
       </body>
     </html>

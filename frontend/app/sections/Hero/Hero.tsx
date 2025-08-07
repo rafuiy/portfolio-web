@@ -13,10 +13,14 @@ export default function Hero() {
         <p className="text-lg text-white-300 mb-4">
           I{"'"}m a Web Developer passionate about crafting responsive, user-focused, and aesthetically pleasing digital experiences.
         </p>
-        <p className="text-lg text-white-400 mb-6">
+        <p className="text-lg text-gray-300 mb-6">
           I thrive on learning new technologies and turning ideas into impactful solutions.<br /> Always learning, always coding.
         </p>
-        <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md flex items-center gap-2 transition">
+        <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md flex items-center gap-2 transition"
+          onClick={() => {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+          }}
+        >
           Let’s Connect
           <span className="text-lg">↗</span>
         </button>
@@ -26,7 +30,7 @@ export default function Hero() {
       <div className="relative hidden md:block z-10">
         <div className="relative w-[420px] h-[500px]">
           <Image
-            src="/images/her.png" // letakkan gambarnya di /public/rafi.png
+            src="/images/her.png"
             alt="Rafi"
             fill
             className="object-cover rounded-xl"
@@ -34,7 +38,7 @@ export default function Hero() {
         </div>
        </div>
 
-      {/* Dekorasi background (misal zigzag, circle, triangle) */}
+      {/* Decoration */}
       <div className="absolute bottom-10 left-10 w-6 h-6 border border-white rotate-45" />
       <div className="absolute top-10 right-20 w-10 h-1 bg-white" />
       <div className="absolute bottom-16 right-10 border-l-[12px] border-r-[12px] border-b-[20px] border-transparent border-b-white" />
