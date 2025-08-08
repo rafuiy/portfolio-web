@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.ts",
     "build": "tsc",
+    "postbuild": "cp -r models controllers routes config middleware dist/",
     "start": "node dist/index.js"
   },
   "keywords": [],
