@@ -123,7 +123,7 @@ export default function About() {
 
       {/* Grid Tech Stack */}
       <motion.div
-        className="flex flex-wrap justify-center sm:gap-1 gap-6 mt-8"
+        className="flex flex-wrap justify-center gap-3 md:gap-6 mt-8"
         variants={fadeContainer}
         initial={false}
         whileInView="show"
