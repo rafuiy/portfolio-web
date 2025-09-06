@@ -26,30 +26,16 @@ export default function Experience() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedExperienceId, setSelectedExperienceId] = useState<number | null>(null);
 
-  // ===== Framer Motion setup (durasi 2 detik) =====
+  // ===== Framer Motion setup (durasi 2 detik, per-item) =====
   const reduceMotion = useReducedMotion();
   const ease = [0.22, 1, 0.36, 1] as const;
   const DUR = 2;
-  const STAGGER = 0.25;
+  const STEP = 0.25; // jeda antar item (opsional)
 
-  // Item: state awal pakai class Tailwind (agar SSR & CSR sama), target "show" di sini
+  // Variants: state awal pakai Tailwind; "show" adalah target akhir
   const fadeItem = {
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: reduceMotion ? 0 : DUR, ease },
-    },
-  };
-
-  // Container untuk stagger anak-anaknya
-  const fadeContainer = {
-    show: {
-      transition: {
-        staggerChildren: reduceMotion ? 0 : STAGGER,
-        delayChildren: reduceMotion ? 0 : 0.05,
-      },
-    },
-  };
+    show: { opacity: 1, y: 0 },
+  } as const;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -113,6 +99,7 @@ export default function Experience() {
         initial={false}
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: reduceMotion ? 0 : DUR, ease }}
       >
         Experience
       </motion.h2>
@@ -124,6 +111,7 @@ export default function Experience() {
         initial={false}
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: reduceMotion ? 0 : DUR, ease, delay: 0.05 }}
       >
         Along the way, I{"'"}ve worked on various projects that helped me grow both technically and creatively.
       </motion.p>
@@ -135,23 +123,25 @@ export default function Experience() {
         initial={false}
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: reduceMotion ? 0 : DUR, ease, delay: 0.1 }}
       />
 
       {loading ? (
         <p className="text-gray-500">Loading...</p>
       ) : (
-        // Container list untuk stagger item
-        <motion.div
-          className="relative flex flex-col items-center gap-10"
-          variants={fadeContainer}
-          initial={false}
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          {experiences.map((exp) => (
+        <div className="relative flex flex-col items-center gap-10">
+          {experiences.map((exp, i) => (
             <motion.div
               key={exp.id}
               variants={fadeItem}
+              initial={false}
+              whileInView="show"                                  // <-- tiap item animasi sendiri
+              viewport={{ once: true, amount: 0.2 }}              // <-- trigger saat item masuk viewport
+              transition={{
+                duration: reduceMotion ? 0 : DUR,
+                ease,
+                delay: reduceMotion ? 0 : i * STEP,               // <-- efek berurutan halus
+              }}
               className="w-full opacity-0 translate-y-6 will-change-transform"
               whileHover={{ y: reduceMotion ? 0 : -4 }}
             >
@@ -160,7 +150,7 @@ export default function Experience() {
                 title={exp.position}
                 organization={exp.instance}
                 description={exp.desc}
-                isLast={false /* biar aman, kalau komponen butuh, bisa kirim index check di sini */}
+                isLast={i === experiences.length - 1}
                 isAdmin={isAdmin}
                 onEditClick={() => {
                   setEditingExperience(exp);
@@ -181,6 +171,7 @@ export default function Experience() {
               initial={false}
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: reduceMotion ? 0 : DUR, ease, delay: 0.05 }}
               onClick={() => {
                 setEditingExperience(null);
                 setShowCreateModal(true);
@@ -189,7 +180,7 @@ export default function Experience() {
               + Add Experience
             </motion.button>
           )}
-        </motion.div>
+        </div>
       )}
 
       <CreateExperienceModal
