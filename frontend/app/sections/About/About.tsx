@@ -134,7 +134,7 @@ export default function About() {
             key={tech.id}
             variants={fadeItem}
             whileHover={{ y: reduceMotion ? 0 : -4 }}
-            className="relative w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#232323] hover:bg-[#333] flex items-center justify-center shadow-md transition group opacity-0 translate-y-6 will-change-transform"
+            className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#232323] hover:bg-[#333] flex items-center justify-center shadow-md transition group opacity-0 translate-y-6 will-change-transform"
           >
             <Image
               src={`${process.env.NEXT_PUBLIC_API_URL}${tech.tech_image}`}
