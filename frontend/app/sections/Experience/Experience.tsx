@@ -78,7 +78,7 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-[#1a1a2e] to-black text-white text-center">
+    <section id="experience" className="py-20 bg-gradient-to-b from-[#1a1a2e] to-black text-white text-center px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
       <p className="text-gray-400 max-w-xl mx-auto mb-4">
         Along the way, I{"'"}ve worked on various projects that helped me grow both technically and creatively.

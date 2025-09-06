@@ -66,7 +66,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="text-center py-20 bg-[#1a1a2e]">
+    <section id="about" className="text-center py-20 px-6 bg-[#1a1a2e]">
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
         What’s Under the Hood
       </h2>
