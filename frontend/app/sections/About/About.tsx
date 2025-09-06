@@ -84,7 +84,7 @@ export default function About() {
         {techStack.map((tech) => (
           <div
             key={tech.id}
-            className="relative w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#232323] hover:bg-[#333] flex items-center justify-center shadow-md transition group"
+            className="relative w-10 h-10 w-14 h-14 rounded-full bg-[#232323] hover:bg-[#333] flex items-center justify-center shadow-md transition group"
           >
            <Image
             src={`${process.env.NEXT_PUBLIC_API_URL}${tech.tech_image}`}
