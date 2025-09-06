@@ -93,12 +93,20 @@ export default function Hero() {
 
       {/* Decoration: fade-up */}
       <motion.div
-        className="absolute bottom-10 left-10 w-6 h-6 border border-white rotate-45 opacity-0 translate-y-6 will-change-transform"
-        variants={fadeUp}
+        className="absolute left-8 bottom-16 opacity-0 translate-y-6 will-change-transform"
         initial={false}
-        whileInView="show"
+        whileInView={{
+          opacity: 0.4,         // final sama seperti opacity-40
+          y: 0,
+          transition: { duration: DUR, ease },
+        }}
         viewport={{ once: true, amount: 0.1 }}
-      />
+      >
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="white" strokeWidth="5">
+          <circle cx="50" cy="50" r="30" />
+          <circle cx="65" cy="65" r="30" />
+        </svg>
+      </motion.div>
       <motion.div
         className="absolute top-10 right-20 w-10 h-1 bg-white opacity-0 translate-y-6 will-change-transform"
         variants={fadeUp}
