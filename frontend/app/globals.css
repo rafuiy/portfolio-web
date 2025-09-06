@@ -5,9 +5,18 @@
 :root {
   --background: #19191B;
   --foreground: #fff;
+  section { scroll-margin-top: var(--nav-h); }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
