@@ -30,8 +30,8 @@ export default function ProjectCard({
           className="w-full h-auto object-cover"
         />
       </div>
-      <h3 className="text-xl font-semibold mb-1">{title}</h3>
-      <div className="flex gap-2 text-primary mb-2">
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <div className="flex gap-2 text-primary mb-6">
         {stackIcons.map((icon, idx) => (
           <Image
             key={idx}
