@@ -8,7 +8,7 @@ const app = express();
 
 // CORS aman untuk preflight
 app.use(cors({ origin: true, credentials: true }));
-app.options("*", cors());
+app.options(/.*/, cors());  
 
 app.use(express.json());
 
