@@ -3,7 +3,7 @@
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["express", "cors", "serverless-http"]
+  external_node_modules = ["pg", "pg-hstore", "express", "cors", "serverless-http"]
 
 [[redirects]]
   from = "/api/*"
