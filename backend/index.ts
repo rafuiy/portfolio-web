@@ -19,7 +19,7 @@ app.get('/', (_req, res) => {
   res.send('API running...');
 });
 
-app.use('/uploads', express.static('public/uploads'))
+app.use( '/uploads', express.static('public/uploads'))
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server listening on port ${PORT}❤`);
