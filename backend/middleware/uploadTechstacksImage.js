@@ -1,10 +1,17 @@
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 
 // Konfigurasi storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/techstacks'); // tujuan penyimpanan
+    const dir = path.join('public', 'uploads', 'techstacks');
+    try {
+      fs.mkdirSync(dir, { recursive: true });
+      cb(null, dir);
+    } catch (err) {
+      cb(err);
+    }
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
