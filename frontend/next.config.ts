@@ -16,6 +16,13 @@ const nextConfig = {
         port: '',
         pathname: '/uploads/**',
       },
+      // Untuk production (Fly)
+      {
+        protocol: 'https',
+        hostname: 'be-portfolio-app.fly.dev',
+        port: '',
+        pathname: '/uploads/**',
+      },
     ],
   },
 };
