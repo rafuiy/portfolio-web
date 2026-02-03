@@ -14,7 +14,7 @@ export default function AdminLogin() {
   setError('');
 
   if (!email || !password) {
-    setError('Email and password are required');
+    setError('Email and password are required') ;
     return;
   }
 
